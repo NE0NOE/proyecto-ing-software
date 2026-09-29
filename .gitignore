@@ -1,0 +1,86 @@
+# ==============================================================================
+# CARPETA CONFIDENCIAL / ARCHIVOS PRIVADOS (NO SUBIR AL REPOSITORIO PÚBLICO)
+# ==============================================================================
+confidential/
+/confidential/
+privado/
+/privado/
+secrets/
+/secrets/
+
+# Variables de entorno y credenciales
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.pfx
+*.p12
+*.kdbx
+
+# ==============================================================================
+# DEPENDENCIAS Y ENTORNOS VIRTUALES
+# ==============================================================================
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==============================================================================
+# SISTEMA OPERATIVO Y ARCHIVOS TEMPORALES
+# ==============================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ==============================================================================
+# ENTORNOS DE DESARROLLO (IDEs)
+# ==============================================================================
+.idea/
+*.sublime-workspace
+*.sublime-project
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

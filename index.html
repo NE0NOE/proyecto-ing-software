@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Defensa de Proyecto: Moto Repuestos El Centenario | UNI - DACTIC</title>
+  
+  <!-- Iconos Phosphor Icons -->
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css"/>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"/>
+
+  <!-- Estilos de Presentación Premium Stitch -->
+  <link rel="stylesheet" href="css/presentation.css">
+</head>
+<body>
+
+  <!-- ==============================================================================
+       BARRA SUPERIOR DE CONTROL (HEADER)
+       ============================================================================== -->
+  <header class="presentation-header">
+    <div class="header-brand">
+      <span class="brand-badge">UNI • DACTIC</span>
+      <span class="brand-title">Moto Repuestos El Centenario</span>
+      <span class="brand-subtitle">| Ingeniería de Software 1</span>
+    </div>
+
+    <div class="header-center">
+      <!-- Temporizador de Defensa (15 Minutos) -->
+      <div class="timer-box" title="Temporizador de exposición (15 min)">
+        <i class="ph ph-clock"></i>
+        <span id="timerDisplay">15:00</span>
+        <button class="timer-btn" id="toggleTimerBtn" title="Iniciar/Pausar temporizador">
+          <i class="ph ph-play"></i>
+        </button>
+        <button class="timer-btn" id="resetTimerBtn" title="Reiniciar temporizador">
+          <i class="ph ph-arrow-counter-clockwise"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="header-controls">
+      <!-- Botón Catálogo 6 Documentos -->
+      <button class="control-btn" onclick="openModal('modalDocs')" title="Ver catálogo de los 6 documentos de referencia">
+        <i class="ph ph-files"></i> 6 Documentos
+      </button>
+
+      <!-- Botón Notas del Orador -->
+      <button class="control-btn" id="toggleNotesBtn" title="Abrir notas del orador (Tecla N)">
+        <i class="ph ph-note-pencil"></i> Notas (N)
+      </button>
+
+      <!-- Botón Índice de Diapositivas -->
+      <button class="control-btn" id="toggleIndexBtn" title="Abrir índice de diapositivas (Tecla M)">
+        <i class="ph ph-list-bullets"></i> Índice
+      </button>
+
+      <!-- Botón Pantalla Completa -->
+      <button class="control-btn" id="fullscreenBtn" title="Alternar pantalla completa (Tecla F)">
+        <i class="ph ph-arrows-out"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Barra de Progreso Global -->
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" id="progressBarFill"></div>
+  </div>
+
+  <!-- ==============================================================================
+       STAGE PRINCIPAL DE DIAPOSITIVAS (VIEWPORT)
+       ============================================================================== -->
+  <main class="presentation-viewport">
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 1: PORTADA OFICIAL
+         -------------------------------------------------------------------------- -->
+    <section class="slide active" id="slide-1">
+      <div class="cover-layout">
+        <div class="cover-badge-top">
+          <div class="uni-logo-box">UNIVERSIDAD NACIONAL DE INGENIERÍA</div>
+          <span class="slide-meta-badge">Defensa de Proyecto de Software 1</span>
+        </div>
+
+        <div class="cover-main-content">
+          <div class="cover-tagline">Distribuidora Comercial • Managua, Nicaragua</div>
+          <h1 class="cover-title">
+            Sistema Integral de <span>Inventario, Facturación Transaccional y Ventas</span>
+          </h1>
+          <p class="cover-subtitle">
+            Defensa integral de líneas base técnicas conforme a estándares internacionales 
+            <strong>ISO/IEC/IEEE 29148</strong>, <strong>ISO 42010</strong>, <strong>ISO 12207</strong>, 
+            principios <strong>SOLID</strong>, seguridad <strong>ISO 27001</strong> y arquitectura <strong>On-Premise vs Nube</strong>.
+          </p>
+        </div>
+
+        <div class="cover-footer-grid">
+          <div class="footer-col">
+            <h4>Equipo de Trabajo Responsable</h4>
+            <p><strong>Br. Ángel Antonio Alonso Suárez</strong> (Carnet: 2021-0087U)<br>
+               <strong>Noel I. Alemán</strong> • <strong>Mendell N. Parrales</strong></p>
+          </div>
+          <div class="footer-col">
+            <h4>Docente Titular</h4>
+            <p><strong>Ing. Roberto Alfaro</strong><br>
+               Dirección de Área de Conocimiento DACTIC</p>
+          </div>
+          <div class="footer-col">
+            <h4>Línea de Tiempo y Entrega</h4>
+            <p><strong>Martes, 29 de Septiembre de 2026</strong><br>
+               Línea base propuesta para aprobación</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 2: DOC 01 - CONTEXTO Y PROBLEMÁTICA DE LA EMPRESA
+         -------------------------------------------------------------------------- -->
+    <section class="slide" id="slide-2">
+      <div class="slide-header">
+        <div>
+          <span class="slide-category"><i class="ph ph-buildings"></i> Documento 01 • Fundamentos de Negocio</span>
+          <h2 class="slide-title">Contexto de la Empresa y Diagnóstico Operativo</h2>
+        </div>
+        <span class="slide-meta-badge">Línea Base: 01_SABD</span>
+      </div>
+
+      <div class="slide-grid-2">
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-warning-circle"></i> Diagnóstico de la Situación Actual</h3>
+            <ul class="card-list">
+              <li><span class="bullet-dot"></span><div><strong>Desfase crítico de existencias:</strong> Registro manual y disperso en hojas de cálculo, generando discrepancias frecuentes entre bodega y mostrador.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Lentitud en mostrador:</strong> Búsqueda manual de compatibilidad de repuestos para motocicletas (marcas como Pulsar, Genesis, Honda, Yamaha).</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Falta de trazabilidad financiera:</strong> Facturación sin amarre transaccional estricto al Kardex ni control de arqueo por turnos de caja.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Riesgo de sobreventa:</strong> Múltiples cajeros vendiendo simultáneamente el mismo repuesto con stock limitado.</div></li>
+            </ul>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric-box">
+              <div class="metric-value">4 Cajas</div>
+              <div class="metric-label">Mostrador Simultáneo</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-value">0%</div>
+              <div class="metric-label">Tolerancia a Negativos</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-value">&lt; 45s</div>
+              <div class="metric-label">Meta de Atención POS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-target"></i> Objetivos del Sistema de Información</h3>
+            <ul class="card-list">
+              <li><span class="bullet-dot"></span><div><strong>Arquitectura Relacional ACID:</strong> Garantizar consistencia transaccional absoluta en cada venta, entrada de compras y ajuste de existencias.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Kardex Append-Only:</strong> Registro histórico inmutable de movimientos; cada alteración de saldo queda vinculada a su documento contable.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Operación Local Autónoma:</strong> Continuidad comercial total en la LAN sin depender de conectividad a Internet.</div></li>
+            </ul>
+            <div style="margin-top: 1rem;">
+              <button class="interactive-action-btn" onclick="openModal('modalDocs')">
+                <i class="ph ph-file-pdf"></i> Ver Resumen de los 6 Documentos PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 3: DOC 02 - LEVANTAMIENTO DE REQUISITOS (StRS, SyRS, SRS)
+         -------------------------------------------------------------------------- -->
+    <section class="slide" id="slide-3">
+      <div class="slide-header">
+        <div>
+          <span class="slide-category"><i class="ph ph-clipboard-text"></i> Documento 02 • Especificación de Requisitos</span>
+          <h2 class="slide-title">Especificación Integral de Requisitos (StRS, SyRS, SRS)</h2>
+        </div>
+        <span class="slide-meta-badge">ISO/IEC/IEEE 29148:2011</span>
+      </div>
+
+      <div class="slide-grid-3">
+        <div class="glass-card">
+          <h3 class="card-title"><i class="ph ph-check-square-offset"></i> 12 Requisitos Funcionales</h3>
+          <ul class="card-list">
+            <li><span class="bullet-dot"></span><div><strong>RF-01:</strong> Identidad, autenticación y permisos por rol.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>RF-02:</strong> Catálogo y compatibilidad de repuestos.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>RF-03/04:</strong> Compras, recepción y Kardex append-only.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>RF-05/06:</strong> Cotización y Venta transaccional POS.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>RF-07/08:</strong> Devoluciones, garantías y turnos de caja.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>RF-09/12:</strong> Auditoría inmutable, reportes y respaldos.</div></li>
+          </ul>
+        </div>
+
+        <div class="glass-card">
+          <h3 class="card-title"><i class="ph ph-scales"></i> 15 Reglas de Negocio</h3>
+          <ul class="card-list">
+            <li><span class="bullet-dot"></span><div><strong>RN-02:</strong> Código OEM y SKU con unicidad estricta.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>RN-06:</strong> Factura confirmada jamás se elimina (solo compensación).</div></li>
+            <li><span class="bullet-dot"></span><div><strong>RN-08:</strong> Saldo de stock nunca negativo en ventas.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>RN-12:</strong> Solo un turno abierto por estación POS.</div></li>
+          </ul>
+          <div style="margin-top: 0.8rem;">
+            <button class="interactive-action-btn" onclick="openModal('modalRules')">
+              <i class="ph ph-magnifying-glass-plus"></i> Ver las 15 Reglas
+            </button>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <h3 class="card-title"><i class="ph ph-shield-check"></i> Requisitos No Funcionales</h3>
+          <ul class="card-list">
+            <li><span class="bullet-dot"></span><div><strong>RNF-02:</strong> Continuidad operativa obligatoria en red local sin conexión a Internet.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>RNF-01:</strong> Latencia en mostrador menor a 1 segundo por escaneo.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>RNF-05:</strong> Control de acceso RBAC con principio de mínimo privilegio.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>RNF-06:</strong> Integridad transaccional ACID en motor relacional.</div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 4: DOC 03 - ARQUITECTURA DE SOFTWARE Y VISTAS ISO 42010
+         -------------------------------------------------------------------------- -->
+    <section class="slide" id="slide-4">
+      <div class="slide-header">
+        <div>
+          <span class="slide-category"><i class="ph ph-tree-structure"></i> Documento 03 • Decisión Arquitectónica</span>
+          <h2 class="slide-title">Arquitectura Seleccionada: Monolito Modular Web</h2>
+        </div>
+        <span class="slide-meta-badge">ISO/IEC/IEEE 42010:2022</span>
+      </div>
+
+      <div class="slide-grid-2">
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-chart-bar"></i> Matriz de Decisión Ponderada de Arquitectura</h3>
+            <table class="slide-table">
+              <thead>
+                <tr>
+                  <th>Criterio Evaluado</th>
+                  <th>Monolito Clásico</th>
+                  <th style="color:var(--accent-orange-light);">Monolito Modular</th>
+                  <th>Microservicios</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Integridad Transaccional ACID</td>
+                  <td>Alta (4/5)</td>
+                  <td style="color:#fff; font-weight:700;">Máxima (5/5)</td>
+                  <td>Baja / Compleja (2/5)</td>
+                </tr>
+                <tr>
+                  <td>Simplicidad Operativa Local</td>
+                  <td>Alta (4/5)</td>
+                  <td style="color:#fff; font-weight:700;">Alta (5/5)</td>
+                  <td>Muy Baja (1/5)</td>
+                </tr>
+                <tr>
+                  <td>Bajo Costo de Mantenimiento</td>
+                  <td>Medio (3/5)</td>
+                  <td style="color:#fff; font-weight:700;">Excelente (5/5)</td>
+                  <td>Costoso (2/5)</td>
+                </tr>
+                <tr>
+                  <td>Desacoplamiento y Evolución</td>
+                  <td>Pobre (2/5)</td>
+                  <td style="color:#fff; font-weight:700;">Óptimo (4.5/5)</td>
+                  <td>Alto (5/5)</td>
+                </tr>
+                <tr style="background:rgba(249,115,22,0.15);">
+                  <td><strong>Puntuación Total</strong></td>
+                  <td>68 / 100</td>
+                  <td><strong style="color:var(--accent-orange-light);">91 / 100 (GANADORA)</strong></td>
+                  <td>52 / 100</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-browsers"></i> Las 5 Vistas de Arquitectura Definidas</h3>
+            <ul class="card-list">
+              <li><span class="bullet-dot"></span><div><strong>V-01 Contexto y Frontera:</strong> Delimita terminales internas POS/Bodega; excluye Internet como dependencia crítica.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>V-02 Capas y Módulos:</strong> Organización en Dominio, Aplicación, Infraestructura e Interfaces con contratos limpios.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>V-03 Información e Integridad:</strong> Propiedad clara de entidades y reglas relacionales de integridad referencial.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>V-04 Procesos y Seguridad:</strong> Secuencia transaccional con revalidación de autorizaciones en backend.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>V-05 Despliegue y Operación:</strong> Despliegue en servidor local LAN protegido con UPS Smart-UPS 1500VA.</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 5: DIAGRAMA INTERACTIVO DE ARQUITECTURA Y FLUJO TRANSACCIONAL
+         -------------------------------------------------------------------------- -->
+    <section class="slide" id="slide-5">
+      <div class="slide-header">
+        <div>
+          <span class="slide-category"><i class="ph ph-cube"></i> Visualización Interactiva</span>
+          <h2 class="slide-title">Capas de Software y Unidad Transaccional de Venta</h2>
+        </div>
+        <span class="slide-meta-badge">Haz clic en cada capa para inspeccionar</span>
+      </div>
+
+      <div class="slide-grid-2">
+        <div class="interactive-diagram-container">
+          <!-- Capa 1 -->
+          <div class="diagram-layer active" data-layer="presentacion">
+            <div class="diagram-layer-left">
+              <span class="layer-indicator"></span>
+              <div>
+                <div class="layer-name">1. Capa de Presentación (Frontend POS)</div>
+                <div class="layer-tech">HTML5 semántico • CSS Stitch • Teclado acelerado</div>
+              </div>
+            </div>
+            <div class="layer-components">
+              <span class="layer-tag">Terminal POS</span>
+              <span class="layer-tag">Bodega</span>
+              <span class="layer-tag">Admin</span>
+            </div>
+          </div>
+
+          <!-- Capa 2 -->
+          <div class="diagram-layer" data-layer="aplicacion">
+            <div class="diagram-layer-left">
+              <span class="layer-indicator" style="background:var(--accent-orange);"></span>
+              <div>
+                <div class="layer-name">2. Capa de Aplicación (Casos de Uso)</div>
+                <div class="layer-tech">VentaService • InventarioService • TurnoCajaService</div>
+              </div>
+            </div>
+            <div class="layer-components">
+              <span class="layer-tag">Orquestador</span>
+              <span class="layer-tag">DIP</span>
+              <span class="layer-tag">SRP</span>
+            </div>
+          </div>
+
+          <!-- Capa 3 -->
+          <div class="diagram-layer" data-layer="dominio">
+            <div class="diagram-layer-left">
+              <span class="layer-indicator" style="background:var(--accent-purple);"></span>
+              <div>
+                <div class="layer-name">3. Capa de Dominio (Entidades y Reglas)</div>
+                <div class="layer-tech">RN-01 a RN-15 • Estrategias de Pago (OCP) • IVA 15%</div>
+              </div>
+            </div>
+            <div class="layer-components">
+              <span class="layer-tag">Producto</span>
+              <span class="layer-tag">Factura</span>
+              <span class="layer-tag">Kardex</span>
+            </div>
+          </div>
+
+          <!-- Capa 4 -->
+          <div class="diagram-layer" data-layer="persistencia">
+            <div class="diagram-layer-left">
+              <span class="layer-indicator" style="background:var(--accent-emerald);"></span>
+              <div>
+                <div class="layer-name">4. Capa de Infraestructura y Base de Datos</div>
+                <div class="layer-tech">PostgreSQL 16 • Índices B-Tree • Consultas Parametrizadas</div>
+              </div>
+            </div>
+            <div class="layer-components">
+              <span class="layer-tag">ACID</span>
+              <span class="layer-tag">Append-Only</span>
+              <span class="layer-tag">Rollback</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-col">
+          <div class="glass-card" style="min-height: 140px;">
+            <h3 class="card-title"><i class="ph ph-info"></i> Detalle de la Capa Seleccionada</h3>
+            <p id="diagramLayerDetailText" style="color:var(--text-secondary); line-height:1.6;">
+              <strong>Capa de Presentación Web (POS & Administración):</strong> Construida con HTML5 moderno, CSS responsivo y componentes accesibles WCAG AA. Gestiona la captura de transacciones en terminales táctiles de mostrador con atajos de teclado para agilizar la atención a menos de 45 segundos.
+            </p>
+          </div>
+
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-git-commit"></i> Protocolo de Atomicidad (V-04)</h3>
+            <div style="font-size:0.86rem; color:var(--text-secondary); line-height:1.5;">
+              <p><strong>Paso 1:</strong> Validar cajero en turno abierto y stock disponible.</p>
+              <p><strong>Paso 2:</strong> Calcular subtotales, IVA y procesar cobro (Strategy OCP).</p>
+              <p><strong>Paso 3:</strong> Inserción atómica: <code>Factura + Detalle + Movimiento Kardex + Caja + Log Auditoría</code>.</p>
+              <p style="color:var(--accent-orange-light); margin-top:4px;"><strong>Ante cualquier fallo:</strong> Rollback compensatorio automático sin efectos colaterales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 6: DOC 04 - METODOLOGÍA DE DESARROLLO (SCRUM ADAPTADO)
+         -------------------------------------------------------------------------- -->
+    <section class="slide" id="slide-6">
+      <div class="slide-header">
+        <div>
+          <span class="slide-category"><i class="ph ph-kanban"></i> Documento 04 • Modelo de Ciclo de Vida</span>
+          <h2 class="slide-title">Metodología de Desarrollo: Scrum Ágil Adaptado</h2>
+        </div>
+        <span class="slide-meta-badge">SWEBOK Guide V4.0a / ISO 12207</span>
+      </div>
+
+      <div class="slide-grid-3">
+        <div class="glass-card">
+          <h3 class="card-title"><i class="ph ph-arrows-clockwise"></i> Sprints de 2 Semanas</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.5; margin-bottom:0.8rem;">
+            Ciclos cortos de desarrollo que garantizan entregables funcionales incrementales para pruebas directas en el mostrador.
+          </p>
+          <ul class="card-list">
+            <li><span class="bullet-dot"></span><div><strong>Sprint 1:</strong> Dominio, catálogo, compatibilidades y PostgreSQL.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>Sprint 2:</strong> Venta transaccional POS, caja y Kardex.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>Sprint 3:</strong> Compras, recepciones, devoluciones y reportes.</div></li>
+          </ul>
+        </div>
+
+        <div class="glass-card">
+          <h3 class="card-title"><i class="ph ph-git-branch"></i> Control Formal de Líneas Base</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.5; margin-bottom:0.8rem;">
+            Hibridación técnica: flexibilidad ágil en la implementación, pero rigor formal en la gestión de requisitos.
+          </p>
+          <ul class="card-list">
+            <li><span class="bullet-dot"></span><div>Trazabilidad bidireccional entre código, pruebas y requisitos (<code>REQ-MREC-001</code>).</div></li>
+            <li><span class="bullet-dot"></span><div>Control de cambios formal: las modificaciones arquitectónicas requieren aprobación explícita.</div></li>
+          </ul>
+        </div>
+
+        <div class="glass-card">
+          <h3 class="card-title"><i class="ph ph-certificate"></i> Buenas Prácticas de Ingeniería</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.5; margin-bottom:0.8rem;">
+            Prácticas continuas incorporadas en el flujo de trabajo:
+          </p>
+          <ul class="card-list">
+            <li><span class="bullet-dot"></span><div><strong>CI/CD Local:</strong> Ejecución obligatoria de suite de pruebas antes de cada commit a <code>main</code>.</div></li>
+            <li><span class="bullet-dot"></span><div><strong>Peer Code Review:</strong> Verificación de cumplimiento SOLID y seguridad ISO 27001 por pares.</div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 7: DOC 05 Y 06 - LENGUAJE DE MODELADO Y DISEÑO UML 2.5.1
+         -------------------------------------------------------------------------- -->
+    <section class="slide" id="slide-7">
+      <div class="slide-header">
+        <div>
+          <span class="slide-category"><i class="ph ph-pencil-ruler"></i> Documentos 05 y 06 • Diseño de Sistema</span>
+          <h2 class="slide-title">Selección de Modelado y Catálogo de Diseño UML 2.5.1</h2>
+        </div>
+        <span class="slide-meta-badge">Líneas Base: LM-MREC-001 y DD-MREC-001</span>
+      </div>
+
+      <div class="slide-grid-2">
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-check-circle"></i> Justificación de UML 2.5.1 Selectivo (Doc 05)</h3>
+            <ul class="card-list">
+              <li><span class="bullet-dot"></span><div><strong>Estandarización Internacional:</strong> Comprensión unívoca entre desarrolladores y jurado evaluador.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Superación de BPMN y C4:</strong> Permite modelar simultáneamente comportamiento transaccional (secuencia y estados) y estructura física (clases y componentes).</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Enfoque Selectivo:</strong> Se modela solo lo que aporta valor verificable al código fuente, evitando burocracia de diagramación innecesaria.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-folders"></i> Modelos Centrales Construidos (Doc 06)</h3>
+            <table class="slide-table">
+              <thead>
+                <tr>
+                  <th>Tipo de Diagrama</th>
+                  <th>Elementos Modelados</th>
+                  <th>Propósito</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Casos de Uso</strong></td>
+                  <td>Cajero, Bodeguero, Administrador, Auditor</td>
+                  <td>Límites de responsabilidad y roles de negocio.</td>
+                </tr>
+                <tr>
+                  <td><strong>Clases de Dominio</strong></td>
+                  <td>Venta, Factura, Detalle, Producto, Kardex</td>
+                  <td>Estructura orientada a objetos desacoplada.</td>
+                </tr>
+                <tr>
+                  <td><strong>Secuencia</strong></td>
+                  <td>Venta en POS con validación de stock</td>
+                  <td>Garantía de orden temporal y commit atómico.</td>
+                </tr>
+                <tr>
+                  <td><strong>Máquina de Estados</strong></td>
+                  <td>Ciclo de Factura y Turno de Caja</td>
+                  <td>Control de transiciones legales y bloqueos.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 8: PROGRAMACIÓN SEGURA ISO/IEC 27001 Y OWASP
+         -------------------------------------------------------------------------- -->
+    <section class="slide" id="slide-8">
+      <div class="slide-header">
+        <div>
+          <span class="slide-category"><i class="ph ph-shield-chevron"></i> Seguridad de la Información</span>
+          <h2 class="slide-title">Programación Segura Alineada con ISO/IEC 27001</h2>
+        </div>
+        <span class="slide-meta-badge">Anexo A • OWASP Top 10</span>
+      </div>
+
+      <div class="slide-grid-2">
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-lock-key"></i> Controles Aplicados en el Código Fuente</h3>
+            <table class="slide-table">
+              <thead>
+                <tr>
+                  <th>Práctica de Seguridad</th>
+                  <th>Módulo / Archivo</th>
+                  <th>Control ISO 27001</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Validación en Servidor</strong></td>
+                  <td><code>src/security/InputValidator.js</code></td>
+                  <td>A.8.28 Codificación segura</td>
+                </tr>
+                <tr>
+                  <td><strong>Consultas Parametrizadas</strong></td>
+                  <td><code>src/infrastructure/repositories/</code></td>
+                  <td>A.8.28 Inyección SQL</td>
+                </tr>
+                <tr>
+                  <td><strong>Cero Secretos en Repo</strong></td>
+                  <td><code>.gitignore</code>, <code>env.js</code></td>
+                  <td>A.5.15 Control de acceso</td>
+                </tr>
+                <tr>
+                  <td><strong>Control RBAC</strong></td>
+                  <td><code>src/security/RbacMiddleware.js</code></td>
+                  <td>A.5.15 Mínimo privilegio</td>
+                </tr>
+                <tr>
+                  <td><strong>Auditoría Inmutable</strong></td>
+                  <td><code>src/security/AuditLogger.js</code></td>
+                  <td>A.8.15 Logging sin secretos</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-shield-warning"></i> Mitigación Directa contra OWASP Top 10</h3>
+            <ul class="card-list">
+              <li><span class="bullet-dot"></span><div><strong>A01 Broken Access Control:</strong> El backend jamás confía en la UI; cada endpoint revalida permisos atómicos por rol.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>A02 Cryptographic Failures:</strong> Hasheo con sal aleatoria (Argon2id/bcrypt con 12 rondas); TLS 1.3 en la LAN.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>A03 Injection:</strong> Parámetros estrictos tipados en PostgreSQL; concatenación SQL prohibida por diseño.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>A09 Logging Failures:</strong> Disparadores impiden UPDATE y DELETE sobre tablas de auditoría (Kardex append-only).</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 9: PRINCIPIOS SOLID Y BUENAS PRÁCTICAS UX
+         -------------------------------------------------------------------------- -->
+    <section class="slide" id="slide-9">
+      <div class="slide-header">
+        <div>
+          <span class="slide-category"><i class="ph ph-code"></i> Arquitectura Limpia e Interfaz</span>
+          <h2 class="slide-title">Principios SOLID y Criterios de Experiencia de Usuario (UX)</h2>
+        </div>
+        <span class="slide-meta-badge">Código Limpio + Interacción Humana</span>
+      </div>
+
+      <div class="slide-grid-2">
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-brackets-curly"></i> Aplicación de Principios SOLID</h3>
+            <ul class="card-list">
+              <li><span class="bullet-dot"></span><div><strong>S (SRP):</strong> <code>CalculadorImpuestos</code> solo calcula IVA y descuentos; <code>VentaService</code> orquesta sin persistir directamente.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>O (OCP):</strong> <code>PaymentFactory</code> permite registrar nuevos medios de pago (tarjeta, transferencia, billetera móvil) sin tocar el código base.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>L (LSP):</strong> <code>InMemoryInventarioRepository</code> sustituye limpiamente al repositorio PostgreSQL en pruebas unitarias.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>I (ISP):</strong> Interfaces segregadas de lectura (<code>IVentaReader</code>) y escritura (<code>IVentaWriter</code>).</div></li>
+              <li><span class="bullet-dot"></span><div><strong>D (DIP):</strong> <code>VentaService</code> recibe sus dependencias inyectadas en su constructor; desacoplado de librerías concretas.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-hand-tap"></i> Buenas Prácticas de UX en Punto de Venta (POS)</h3>
+            <ul class="card-list">
+              <li><span class="bullet-dot"></span><div><strong>Claridad de Mostrador:</strong> Datos esenciales visibles sin jerga técnica: código, compatibilidad de moto, stock real y precio final.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Feedback Inmediato:</strong> Indicadores de estado en tiempo real (verde = stock verificado, rojo = cantidad sobregirada).</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Prevención de Errores:</strong> Bloqueo visual e imposibilidad de digitar cantidades superiores a existencias reales.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Aceleración por Teclado:</strong> Atajos directos (<code>F2</code> buscar, <code>F4</code> cobrar, <code>ESC</code> cancelar) para despacho en &lt; 45 seg.</div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 10: ESTRATEGIA Y RESULTADOS DE PRUEBAS AUTOMATIZADAS
+         -------------------------------------------------------------------------- -->
+    <section class="slide" id="slide-10">
+      <div class="slide-header">
+        <div>
+          <span class="slide-category"><i class="ph ph-test-tube"></i> Verificación y Validación</span>
+          <h2 class="slide-title">Estrategia de Pruebas: Sistema y Base de Datos</h2>
+        </div>
+        <span class="slide-meta-badge">Resultados Reales en Node.js Test Runner</span>
+      </div>
+
+      <div class="slide-grid-2">
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-check-fat" style="color:var(--accent-emerald);"></i> 100% Casos de Prueba Aprobados</h3>
+            <div class="metric-row" style="margin-bottom:1rem;">
+              <div class="metric-box" style="border-left-color:var(--accent-emerald);">
+                <div class="metric-value" style="color:var(--accent-emerald);">6 / 6</div>
+                <div class="metric-label">Pruebas Aprobadas</div>
+              </div>
+              <div class="metric-box" style="border-left-color:var(--accent-cyan);">
+                <div class="metric-value">146 ms</div>
+                <div class="metric-label">Tiempo de Ejecución</div>
+              </div>
+              <div class="metric-box" style="border-left-color:var(--accent-orange);">
+                <div class="metric-value">0</div>
+                <div class="metric-label">Fallos o Errores</div>
+              </div>
+            </div>
+
+            <ul class="card-list">
+              <li><span class="bullet-dot" style="background:var(--accent-emerald);"></span><div><strong>CP-SIS-01 (Aprobado):</strong> Emisión exitosa de factura con 2 productos y descuento contable exacto.</div></li>
+              <li><span class="bullet-dot" style="background:var(--accent-emerald);"></span><div><strong>CP-SIS-02 (Aprobado):</strong> Sobregiro de stock bloqueado con mensaje controlado.</div></li>
+              <li><span class="bullet-dot" style="background:var(--accent-emerald);"></span><div><strong>CP-SIS-03 (Aprobado):</strong> Intento de anulación por Cajero bloqueado con <code>Error 403</code>.</div></li>
+              <li><span class="bullet-dot" style="background:var(--accent-emerald);"></span><div><strong>CP-DB-03 (Aprobado):</strong> Rollback automático restaura el stock ante fallos intermedios.</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-terminal-window"></i> Verificación en Terminal</h3>
+            <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:0.8rem;">
+              Las pruebas están automatizadas en el repositorio e integradas para ejecución mediante <code>npm test</code>.
+            </p>
+            <div style="background:#05070e; border:1px solid var(--border-subtle); border-radius:8px; padding:0.9rem; font-family:var(--font-mono); font-size:0.78rem; color:var(--accent-emerald);">
+              ▶ Suite: Moto Repuestos El Centenario<br>
+              &nbsp;&nbsp;✔ CP-SIS-03: RbacMiddleware bloquea cajero (2.06ms)<br>
+              &nbsp;&nbsp;✔ InputValidator rechaza inyección/overflow (0.44ms)<br>
+              &nbsp;&nbsp;✔ SOLID-SRP: CalculadorImpuestos IVA 15% (0.87ms)<br>
+              &nbsp;&nbsp;✔ SOLID-OCP: PaymentFactory Strategy (0.30ms)<br>
+              &nbsp;&nbsp;✔ SOLID-LSP/DIP: VentaService transaccional (2.06ms)<br>
+              &nbsp;&nbsp;✔ CP-DB-03: Rollback compensatorio atómico (1.21ms)<br>
+              ℹ pass 6, fail 0, duration_ms 146.22
+            </div>
+            <div style="margin-top:0.9rem;">
+              <button class="interactive-action-btn" onclick="openModal('modalTests')">
+                <i class="ph ph-file-code"></i> Ver Matriz de Trazabilidad de Pruebas
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 11: INFRAESTRUCTURA Y RED: LOCAL VS NUBE
+         -------------------------------------------------------------------------- -->
+    <section class="slide" id="slide-11">
+      <div class="slide-header">
+        <div>
+          <span class="slide-category"><i class="ph ph-hard-drives"></i> Topología e Infraestructura</span>
+          <h2 class="slide-title">Informe Técnico: Despliegue Local (On-Premise) vs Nube (AWS)</h2>
+        </div>
+        <span class="slide-meta-badge">Ubuntu Server + PostgreSQL 16</span>
+      </div>
+
+      <div class="slide-grid-2">
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-desktop-tower"></i> Topología Física Confirmada (On-Premise)</h3>
+            <ul class="card-list">
+              <li><span class="bullet-dot"></span><div><strong>Servidor Central:</strong> Intel Xeon E-2336 / i7-14700, 32 GB RAM DDR5, 2x 1TB NVMe en RAID-1 espejo.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Software Base:</strong> Ubuntu Server 24.04 LTS (64-bit) con motor PostgreSQL 16.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Estaciones de Venta:</strong> 4 terminales POS táctiles All-in-One con impresoras térmicas EPSON TM-T20III y gavetas RJ11.</div></li>
+              <li><span class="bullet-dot"></span><div><strong>Red y Energía:</strong> Switch Gigabit Administrable Cat 6 y UPS Smart-UPS 1500VA LCD (45-60 min de autonomía ante apagones).</div></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slide-col">
+          <div class="glass-card">
+            <h3 class="card-title"><i class="ph ph-scales"></i> Resumen Comparativo Local vs AWS</h3>
+            <table class="slide-table">
+              <thead>
+                <tr>
+                  <th>Criterio</th>
+                  <th style="color:var(--accent-orange-light);">Local On-Premise</th>
+                  <th>Nube AWS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Costo a 3 años</td>
+                  <td style="color:#fff; font-weight:700;">~$3,800 USD total</td>
+                  <td>~$6,500 - $8,000 USD</td>
+                </tr>
+                <tr>
+                  <td>Dependencia ISP</td>
+                  <td style="color:var(--accent-emerald); font-weight:700;">Cero (100% offline)</td>
+                  <td>Crítica (Venta se detiene)</td>
+                </tr>
+                <tr>
+                  <td>Latencia en caja</td>
+                  <td style="color:var(--accent-emerald); font-weight:700;">&lt; 1 ms (Instantáneo)</td>
+                  <td>75 - 130 ms (Lenta)</td>
+                </tr>
+                <tr>
+                  <td>Soberanía Datos</td>
+                  <td>Total en local</td>
+                  <td>Tercerizada en AWS</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="margin-top: 1rem;">
+              <button class="interactive-action-btn" onclick="openModal('modalInfra')">
+                <i class="ph ph-chart-pie"></i> Ver Desglose Financiero y de Red
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------------
+         SLIDE 12: CONCLUSIONES Y PRÓXIMOS PASOS
+         -------------------------------------------------------------------------- -->
+    <section class="slide" id="slide-12">
+      <div class="slide-header">
+        <div>
+          <span class="slide-category"><i class="ph ph-flag-checkered"></i> Cierre de la Defensa</span>
+          <h2 class="slide-title">Conclusiones y Dictamen de Ingeniería</h2>
+        </div>
+        <span class="slide-meta-badge">Aprobación de Líneas Base</span>
+      </div>
+
+      <div class="slide-grid-3">
+        <div class="glass-card">
+          <h3 class="card-title"><i class="ph ph-seal-check" style="color:var(--accent-emerald);"></i> Rigor de Ingeniería</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.5;">
+            Se completó la alineación estricta de las 6 líneas base técnicas bajo normas internacionales 
+            <strong>ISO 29148</strong>, <strong>ISO 42010</strong> e <strong>ISO 12207</strong>, garantizando trazabilidad total desde el problema de negocio hasta las pruebas de software.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <h3 class="card-title"><i class="ph ph-shield-check" style="color:var(--accent-orange-light);"></i> Integridad y Seguridad</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.5;">
+            La arquitectura de <strong>Monolito Modular</strong> con persistencia PostgreSQL 16 y principios <strong>SOLID</strong> garantiza que la distribuidora no sufra descuadres de inventario, sobregiros ni accesos no autorizados en mostrador.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <h3 class="card-title"><i class="ph ph-rocket-launch" style="color:var(--accent-cyan-light);"></i> Próximos Pasos</h3>
+          <ul class="card-list">
+            <li><span class="bullet-dot"></span><div>Aprobación formal de las líneas base por el docente Ing. Roberto Alfaro.</div></li>
+            <li><span class="bullet-dot"></span><div>Inicio del Sprint 1 del modelo Scrum adaptado.</div></li>
+            <li><span class="bullet-dot"></span><div>Configuración del servidor físico con Ubuntu Server 24.04 LTS.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.88rem;">
+        ¡Muchas gracias por su atención! Abrimos el espacio para preguntas y retroalimentación del jurado.
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==============================================================================
+       NOTAS DEL ORADOR (SPEAKER NOTES DRAWER)
+       ============================================================================== -->
+  <aside class="speaker-notes-drawer" id="speakerNotesDrawer">
+    <div class="notes-header">
+      <div class="notes-title">
+        <i class="ph ph-microphone"></i>
+        <span>Notas del Orador • Puntos Clave para la Defensa (10 - 15 min)</span>
+      </div>
+      <button class="notes-close-btn" id="closeNotesBtn" title="Cerrar notas"><i class="ph ph-x"></i></button>
+    </div>
+    <div class="notes-body" id="notesContentBody">
+      <!-- Se inyecta dinámicamente según la diapositiva actual -->
+    </div>
+  </aside>
+
+  <!-- ==============================================================================
+       DRAWER DE ÍNDICE DE DIAPOSITIVAS
+       ============================================================================== -->
+  <aside class="index-drawer" id="indexDrawer">
+    <div class="index-drawer-header">
+      <h3>Índice de la Presentación</h3>
+      <button class="notes-close-btn" id="closeIndexBtn"><i class="ph ph-x"></i></button>
+    </div>
+    <div class="index-list" id="indexList">
+      <!-- Se genera automáticamente con JS -->
+    </div>
+  </aside>
+
+  <!-- ==============================================================================
+       BARRA INFERIOR DE NAVEGACIÓN (FOOTER)
+       ============================================================================== -->
+  <footer class="presentation-footer">
+    <div class="footer-nav-group">
+      <button class="nav-arrow-btn" id="prevSlideBtn" title="Diapositiva anterior (Flecha Izquierda)">
+        <i class="ph ph-caret-left-bold"></i>
+      </button>
+      <div class="slide-counter">
+        <span id="currentSlideNum">01</span> / <span id="totalSlidesNum">12</span>
+      </div>
+      <button class="nav-arrow-btn" id="nextSlideBtn" title="Siguiente diapositiva (Flecha Derecha o Espacio)">
+        <i class="ph ph-caret-right-bold"></i>
+      </button>
+    </div>
+
+    <div class="footer-shortcuts-hint">
+      <span>Atajos:</span>
+      <span class="kbd-badge">←</span>
+      <span class="kbd-badge">→</span>
+      <span class="kbd-badge">Espacio</span>
+      <span class="kbd-badge">F (Pantalla completa)</span>
+      <span class="kbd-badge">N (Notas)</span>
+      <span class="kbd-badge">M (Menú)</span>
+    </div>
+  </footer>
+
+  <!-- ==============================================================================
+       VENTANAS MODALES INTERACTIVAS (DEEP DIVE MODALS)
+       ============================================================================== -->
+
+  <!-- Modal 1: Catálogo de los 6 Documentos PDF -->
+  <div class="modal-overlay" id="modalDocs">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3><i class="ph ph-files"></i> Catálogo Oficial de los 6 Documentos Técnicos</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalDocs')"><i class="ph ph-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom:1rem;">Documentación integral depositada en la carpeta confidencial del proyecto conforme a la asignación de Ingeniería de Software 1 (DACTIC - UNI):</p>
+        <table class="slide-table">
+          <thead>
+            <tr>
+              <th>Identificador</th>
+              <th>Nombre del Documento</th>
+              <th>Normativa / Enfoque</th>
+              <th>Páginas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>01_SABD</strong></td>
+              <td>Diseño de Arquitectura Back-End Relacional de Moto Repuestos El Centenario</td>
+              <td>Diagnóstico de inventario, normalización 3NF, SP, vistas y triggers.</td>
+              <td>39 págs</td>
+            </tr>
+            <tr>
+              <td><strong>02_REQ</strong></td>
+              <td>Especificación Integral de Requisitos (StRS, SyRS, SRS) [REQ-MREC-001]</td>
+              <td>ISO/IEC/IEEE 29148:2011, ISO 12207 e ISO 25010.</td>
+              <td>49 págs</td>
+            </tr>
+            <tr>
+              <td><strong>03_DA</strong></td>
+              <td>Descripción de Arquitectura de Software [DA-MREC-001]</td>
+              <td>ISO/IEC/IEEE 42010:2022 (Monolito modular, 5 vistas de arquitectura).</td>
+              <td>32 págs</td>
+            </tr>
+            <tr>
+              <td><strong>04_MET</strong></td>
+              <td>Elección y Justificación de la Metodología de Desarrollo [MET-MREC-001]</td>
+              <td>SWEBOK V4.0a e ISO 12207 (Scrum adaptado con sprints de 2 semanas).</td>
+              <td>24 págs</td>
+            </tr>
+            <tr>
+              <td><strong>05_LM</strong></td>
+              <td>Análisis y Selección del Lenguaje de Modelado [LM-MREC-001]</td>
+              <td>Selección justificada de UML 2.5.1 selectivo sobre BPMN y C4.</td>
+              <td>14 págs</td>
+            </tr>
+            <tr>
+              <td><strong>06_DD</strong></td>
+              <td>Documentación de Diseño del Sistema Comercial [DD-MREC-001]</td>
+              <td>Diagramas UML de casos de uso, dominio, secuencia transaccional y estados.</td>
+              <td>18 págs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: 15 Reglas de Negocio -->
+  <div class="modal-overlay" id="modalRules">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3><i class="ph ph-scales"></i> Las 15 Reglas de Negocio de Moto Repuestos El Centenario</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalRules')"><i class="ph ph-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <table class="slide-table">
+          <thead>
+            <tr>
+              <th>Regla</th>
+              <th>Denominación</th>
+              <th>Descripción y Validación en Servidor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>RN-01</strong></td>
+              <td>Identificación de Usuarios</td>
+              <td>Cada operario debe poseer credenciales individuales; prohibido compartir sesiones en cajas.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-02</strong></td>
+              <td>Unicidad de Identificadores</td>
+              <td>SKU y códigos OEM de repuestos son únicos en el catálogo comercial.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-03</strong></td>
+              <td>Compatibilidad Obligatoria</td>
+              <td>Todo repuesto debe estar clasificado con compatibilidad por marca, modelo y año de motocicleta.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-04</strong></td>
+              <td>Vigencia de Precios</td>
+              <td>Toda cotización emitida congela el precio por un máximo de 7 días calendario.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-05</strong></td>
+              <td>Consistencia de Compras</td>
+              <td>No se permite dar entrada a inventario sin orden de compra aprobada y factura de proveedor.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-06</strong></td>
+              <td>Inmutabilidad de Factura</td>
+              <td>Una factura con estado CONFIRMADA jamás se borra; solo se anula mediante nota de crédito compensatoria.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-07</strong></td>
+              <td>Límite de Descuentos</td>
+              <td>Cajeros pueden aplicar hasta 5% de descuento; mayores rebajas exigen autorización de Administrador.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-08</strong></td>
+              <td>No Sobregiro de Stock</td>
+              <td>El inventario no admite saldos negativos en salidas ordinarias de mostrador.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-09</strong></td>
+              <td>Kardex Append-Only</td>
+              <td>Los movimientos de Kardex son solo de anexado; prohibidos UPDATE o DELETE sobre historial.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-10</strong></td>
+              <td>Política de Devolución</td>
+              <td>Plazo máximo de 8 días hábiles, empaque original íntegro y presentación de comprobante físico.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-11</strong></td>
+              <td>Garantía Técnica</td>
+              <td>Repuestos eléctricos o partes de motor requieren peritaje de taller antes del cambio.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-12</strong></td>
+              <td>Unicidad de Turno de Caja</td>
+              <td>Solo puede haber un turno de cobro abierto por estación POS y cajero a la vez.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-13</strong></td>
+              <td>Cuadre y Arqueo Ciego</td>
+              <td>El cajero reporta el dinero en caja sin conocer previamente el monto teórico calculado por el sistema.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-14</strong></td>
+              <td>Auditoría Obligatoria</td>
+              <td>Toda acción crítica (descuento, anulación, cambio de precio) genera log inmutable con usuario e IP.</td>
+            </tr>
+            <tr>
+              <td><strong>RN-15</strong></td>
+              <td>Respaldo Diario</td>
+              <td>Copia de seguridad obligatoria al cierre del día, verificable y con cifrado AES-256.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Comparativa de Infraestructura Local vs AWS -->
+  <div class="modal-overlay" id="modalInfra">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3><i class="ph ph-chart-pie"></i> Desglose Detallado: Despliegue Local vs Nube AWS</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalInfra')"><i class="ph ph-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <table class="slide-table">
+          <thead>
+            <tr>
+              <th>Concepto de Costo</th>
+              <th>Local On-Premise (Ubuntu + PostgreSQL)</th>
+              <th>Nube AWS (EC2 + RDS PostgreSQL)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Inversión Inicial (Hardware/Setup)</strong></td>
+              <td>$3,200 USD (Servidor, switch 16p, cableado Cat6, UPS)</td>
+              <td>$400 USD (Configuración de VPC, túneles y terminales)</td>
+            </tr>
+            <tr>
+              <td><strong>Costo Mensual de Operación</strong></td>
+              <td>~$25 USD (Electricidad del servidor y mantenimiento)</td>
+              <td>~$185 USD/mes (EC2 t3.xlarge + RDS db.m6g.large + VPN)</td>
+            </tr>
+            <tr>
+              <td><strong>Gasto Acumulado Año 1</strong></td>
+              <td>$3,500 USD</td>
+              <td>$2,620 USD</td>
+            </tr>
+            <tr>
+              <td><strong>Gasto Acumulado Año 2</strong></td>
+              <td>$3,800 USD</td>
+              <td>$4,840 USD</td>
+            </tr>
+            <tr>
+              <td><strong>Gasto Acumulado Año 3</strong></td>
+              <td><strong style="color:var(--accent-emerald);">$4,100 USD (Ahorro evidente)</strong></td>
+              <td><strong style="color:#ef4444;">$7,060 USD (Costo continuo)</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Tolerancia ante caída de Internet</strong></td>
+              <td><strong style="color:var(--accent-emerald);">100% Inmune (Sigue cobrando)</strong></td>
+              <td><strong style="color:#ef4444;">Crítica (Cajas registradoras paralizadas)</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Latencia de Respuesta</strong></td>
+              <td><strong>&lt; 1 ms (Sub-milisegundo en LAN)</strong></td>
+              <td>80 - 120 ms (Hacia data center us-east-1)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Salida de Pruebas Automatizadas -->
+  <div class="modal-overlay" id="modalTests">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3><i class="ph ph-check-circle"></i> Resultados de Testing y Trazabilidad</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalTests')"><i class="ph ph-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom:0.8rem;">Matriz de trazabilidad que valida la implementación de principios SOLID, controles ISO 27001 y resiliencia de datos:</p>
+        <table class="slide-table">
+          <thead>
+            <tr>
+              <th>Práctica Validada</th>
+              <th>Módulo / Clase</th>
+              <th>Prueba Asociada</th>
+              <th>Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Control RBAC (ISO 27001 A.5.15)</td>
+              <td><code>src/security/RbacMiddleware.js</code></td>
+              <td>CP-SIS-03: Bloqueo de Cajero en anulación</td>
+              <td><span style="color:var(--accent-emerald); font-weight:700;">Aprobado</span></td>
+            </tr>
+            <tr>
+              <td>Saneamiento (ISO 27001 A.8.28)</td>
+              <td><code>src/security/InputValidator.js</code></td>
+              <td>CP-SIS-03: Rechazo de strings maliciosos y negativos</td>
+              <td><span style="color:var(--accent-emerald); font-weight:700;">Aprobado</span></td>
+            </tr>
+            <tr>
+              <td>SOLID: Responsabilidad Única (SRP)</td>
+              <td><code>CalculadorImpuestos.js</code></td>
+              <td>Cálculo contable exacto de IVA (15%)</td>
+              <td><span style="color:var(--accent-emerald); font-weight:700;">Aprobado</span></td>
+            </tr>
+            <tr>
+              <td>SOLID: Abierto/Cerrado (OCP)</td>
+              <td><code>MedioPagoProcessor.js</code></td>
+              <td>Procesamiento Strategy de Efectivo y Tarjeta</td>
+              <td><span style="color:var(--accent-emerald); font-weight:700;">Aprobado</span></td>
+            </tr>
+            <tr>
+              <td>SOLID: Liskov y DIP</td>
+              <td><code>VentaService.js</code></td>
+              <td>Orquestación con InMemoryInventarioRepo</td>
+              <td><span style="color:var(--accent-emerald); font-weight:700;">Aprobado</span></td>
+            </tr>
+            <tr>
+              <td>Atomicidad y Rollback Transaccional</td>
+              <td><code>VentaService.js</code></td>
+              <td>CP-DB-03: Restauración de stock por sobregiro</td>
+              <td><span style="color:var(--accent-emerald); font-weight:700;">Aprobado</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script interactivo -->
+  <script src="js/presentation.js"></script>
+</body>
+</html>

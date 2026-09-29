@@ -1,0 +1,18 @@
+{
+  "name": "proyecto-ing-software-mrec",
+  "version": "1.0.0",
+  "description": "Sistema Comercial y Documentación Técnica - Moto Repuestos El Centenario",
+  "main": "src/modules/ventas/VentaService.js",
+  "scripts": {
+    "test": "node --test test/system-and-db.test.js"
+  },
+  "keywords": [
+    "solid",
+    "iso27001",
+    "postgresql",
+    "ingenieria-de-software",
+    "uni-dactic"
+  ],
+  "author": "Ángel A. Alonso, Noel I. Alemán, Mendell N. Parrales",
+  "license": "MIT"
+}

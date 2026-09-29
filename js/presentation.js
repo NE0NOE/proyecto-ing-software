@@ -1,90 +1,82 @@
 /**
  * ==============================================================================
- * MOTOR INTERACTIVO DE PRESENTACIÓN - MOTO REPUESTOS EL CENTENARIO
- * Soporte de teclado, modo orador, temporizador de 15 min, modales y navegación
+ * MOTOR INTERACTIVO DE PRESENTACIÓN TÉCNICA - BLUEPRINT
+ * Moto Repuestos El Centenario | UNI - DACTIC
+ * Sin temporizador • 100% Offline • 9 Slides + Anexos
  * ==============================================================================
  */
 
-// Notas de orador por diapositiva (Pensadas para una defensa fluida de 10 a 15 minutos)
-const SPEAKER_NOTES = {
-  1: `<strong>Diapositiva 1: Portada Oficial (Tiempo: 1 min)</strong>
+// Notas de orador ajustadas a 10-15 minutos (~90 a 100 segundos por slide)
+const SPEAKER_NOTES_BP = {
+  1: `<strong>Slide 1: Portada Técnica (1 min)</strong>
       <ul>
-        <li>Saludar al jurado y docente Ing. Roberto Alfaro.</li>
-        <li>Presentar al equipo responsable (Ángel Alonso, Noel Alemán, Mendell Parrales).</li>
-        <li>Establecer el alcance: Defensa integral de las 6 líneas base técnicas del sistema comercial «Moto Repuestos El Centenario» integrando arquitectura, seguridad ISO 27001, SOLID, UX, testing e infraestructura.</li>
+        <li>Saludar al jurado y al docente titular Ing. Roberto Alfaro.</li>
+        <li>Presentar al equipo: Br. Ángel Antonio Alonso Suárez (2021-0087U), Noel I. Alemán y Mendell N. Parrales.</li>
+        <li>Presentar el objetivo: Defender las 6 líneas base técnicas del sistema de inventario y facturación transaccional de «Moto Repuestos El Centenario» en Managua.</li>
       </ul>`,
-  2: `<strong>Diapositiva 2: Doc 01 - Contexto y Problemática (Tiempo: 1.5 min)</strong>
+  2: `<strong>Slide 2: Historia de la Empresa (1.5 min)</strong>
       <ul>
-        <li>Enfatizar la realidad comercial en Managua: alto volumen de repuestos, pero inventario manual/desfasado.</li>
-        <li>Problema clave: Diferencias de existencias entre bodega y mostrador; ventas perdidas o cobros con precios erróneos.</li>
-        <li>Objetivo: Crear un backend relacional transaccional robusto que garantice stock verídico y control de 4 cajas simultáneas.</li>
+        <li>Explicar el crecimiento comercial: la empresa inició como un negocio familiar de venta de repuestos y creció hasta tener 4 cajas de mostrador y bodega central.</li>
+        <li>Señalar los marcadores <code>[COMPLETAR]</code>: corresponden a las fechas fundacionales y detalles de ubicación que la empresa está por confirmar formalmente.</li>
+        <li>Conclusión clave: La empresa creció físicamente pero mantuvo métodos de registro en papel, provocando una brecha operativa insostenible.</li>
       </ul>`,
-  3: `<strong>Diapositiva 3: Doc 02 - Requisitos StRS, SyRS y SRS (Tiempo: 1.5 min)</strong>
+  3: `<strong>Slide 3: El Problema que Resolvemos (1.5 min)</strong>
       <ul>
-        <li>Resaltar el cumplimiento de estándares formales: ISO/IEC/IEEE 29148 y 12207.</li>
-        <li>Mencionar que el sistema cuenta con 12 Requisitos Funcionales (RF-01 a RF-12) y 15 Reglas de Negocio inquebrantables.</li>
-        <li>Destacar el RNF-02: <strong>Continuidad local obligatoria</strong>; la facturación no depende del enlace a Internet.</li>
+        <li>Exponer los 4 puntos de dolor del Doc 01 con datos duros:
+          (1) Desfase crítico entre bodega y mostrador;
+          (2) Lentitud al buscar compatibilidad para motos como Pulsar o Genesis;
+          (3) Errores en precios y márgenes;
+          (4) Sobreventa concurrente del último repuesto en existencia.</li>
+        <li>Conclusión: El registro manual provocaba pérdidas económicas reales y requería automatización estricta.</li>
       </ul>`,
-  4: `<strong>Diapositiva 4: Doc 03 - Arquitectura y Selección Justificada (Tiempo: 1.5 min)</strong>
+  4: `<strong>Slide 4: Levantamiento de Requerimientos (1.5 min)</strong>
       <ul>
-        <li>Explicar el análisis de alternativas: se comparó Monolito Tradicional, Monolito Modular y Microservicios.</li>
-        <li>Justificar por qué ganó el <strong>Monolito Modular</strong>: máxima integridad transaccional ACID, bajo costo operativo y sin la complejidad de red de microservicios.</li>
-        <li>Mencionar las 5 vistas ISO 42010 (Contexto, Capas, Información, Procesos y Despliegue).</li>
+        <li>Marco de ingeniería: ISO/IEC/IEEE 29148:2011 e ISO 12207.</li>
+        <li>Mostrar la cuadrícula de los 12 RF organizados en 4 módulos. (Hacer clic en los botones para mostrar interacción).</li>
+        <li>Enfatizar las 15 Reglas de Negocio (abrir modal con botón) y el <strong>RNF-02</strong>: la venta en mostrador no depende de Internet.</li>
       </ul>`,
-  5: `<strong>Diapositiva 5: Diagrama de Arquitectura y Transacción POS (Tiempo: 1.5 min)</strong>
+  5: `<strong>Slide 5: Arquitectura de Software (1.5 min)</strong>
       <ul>
-        <li>Invitar a hacer clic en las capas del diagrama interactivo.</li>
-        <li>Explicar el flujo transaccional de venta: bloqueo optimista/pesimista de stock, recalculo en servidor, comprobante y commit atómico.</li>
-        <li>Aclarar que si un paso falla (ej. caída de corriente o error de pago), el sistema ejecuta un rollback íntegro sin dejar inconsistencias.</li>
+        <li>Mostrar el gráfico de barras comparativo: Monolito Clásico (68) vs Monolito Modular (91) vs Microservicios (52).</li>
+        <li>Decisión justificada: El Monolito Modular Web ofrece integridad transaccional ACID pura en PostgreSQL sin la complejidad de red de microservicios.</li>
+        <li>Mencionar el alineamiento con las 5 vistas de ISO/IEC/IEEE 42010.</li>
       </ul>`,
-  6: `<strong>Diapositiva 6: Doc 04 - Metodología de Desarrollo (Tiempo: 1 min)</strong>
+  6: `<strong>Slide 6: Capas y Flujo de Venta POS (2 min)</strong>
       <ul>
-        <li>Marco rector: SWEBOK V4 e ISO 12207.</li>
-        <li>Metodología: Scrum adaptado con iteraciones de 2 semanas.</li>
-        <li>Aclarar la adaptación: agilidad en la construcción de pantallas y flujos, pero con control riguroso y formal de versiones sobre las líneas base de requisitos y arquitectura.</li>
+        <li>Demostrar la interactividad: avanzar paso a paso por los 5 estados de la venta transaccional.</li>
+        <li>Presionar el botón <strong>«Simular fallo y ver Rollback»</strong> para demostrar la robustez transaccional: si el stock se agota o hay un corte de red, la operación se cancela en rojo y el stock se repone intacto.</li>
       </ul>`,
-  7: `<strong>Diapositiva 7: Doc 05 y 06 - Modelado y Diseño UML (Tiempo: 1 min)</strong>
+  7: `<strong>Slide 7: Metodología de Desarrollo (1 min)</strong>
       <ul>
-        <li>Justificar la elección de UML 2.5.1 selectivo sobre otras notaciones.</li>
-        <li>Detallar los modelos construidos: Casos de uso divididos por roles (Cajero, Bodeguero, Admin, Auditor), Clases de dominio y Máquina de estados para Facturas y Turnos de Caja.</li>
+        <li>Metodología: Scrum adaptado en 3 sprints de 2 semanas con control formal de líneas base (SWEBOK V4).</li>
+        <li>Sprint 1: Dominio y Catálogo; Sprint 2: Ventas POS y Kardex; Sprint 3: Compras, Devoluciones y Auditoría.</li>
+        <li>Cualquier cambio a los requisitos o arquitectura exige solicitud formal de cambio.</li>
       </ul>`,
-  8: `<strong>Diapositiva 8: Seguridad ISO/IEC 27001 y OWASP (Tiempo: 1.5 min)</strong>
+  8: `<strong>Slide 8: Modelo y Diseño del Sistema (2 min)</strong>
       <ul>
-        <li>Explicar que la seguridad no es un añadido, sino parte del diseño (Security by Design).</li>
-        <li>Mencionar los controles aplicados: Consultas 100% parametrizadas contra Inyección SQL, Control de Acceso RBAC en backend y almacenamiento seguro con Argon2id/bcrypt con sal.</li>
-        <li>Resaltar la inmutabilidad de la auditoría: los registros históricos no se pueden modificar ni borrar.</li>
+        <li>Demostrar los diagramas UML 2.5.1 selectivo haciendo clic en las pestañas:
+          (1) Casos de uso de los 4 actores;
+          (2) Clases centrales del dominio comercial;
+          (3) Secuencia temporal con try/catch;
+          (4) Máquina de estados de Factura y Caja.</li>
+        <li>Resaltar que son diagramas vectoriales técnicos, no texto plano.</li>
       </ul>`,
-  9: `<strong>Diapositiva 9: Principios SOLID y Buenas Prácticas UX (Tiempo: 1.5 min)</strong>
+  9: `<strong>Slide 9: Conclusiones y Cierre (1 min)</strong>
       <ul>
-        <li>Presentar cómo se reflejan los 5 principios SOLID en las clases reales del repositorio (SRP, OCP, LSP, ISP, DIP).</li>
-        <li>Explicar el criterio de UX en punto de venta: interfaz táctil clara, atajos de teclado para atención rápida y prevención activa de errores humanos en mostrador.</li>
-      </ul>`,
-  10: `<strong>Diapositiva 10: Estrategia y Pruebas Automatizadas (Tiempo: 1 min)</strong>
-      <ul>
-        <li>Mostrar con orgullo el 100% de éxito en la suite automatizada (6 pruebas unitarias e integrales en Node.js test runner).</li>
-        <li>Mencionar que se validó tanto la lógica del sistema como las restricciones de PostgreSQL (integridad referencial y atomicidad de rollback).</li>
-      </ul>`,
-  11: `<strong>Diapositiva 11: Infraestructura y Red: Local vs Nube (Tiempo: 1.5 min)</strong>
-      <ul>
-        <li>Contrastar el Servidor Local en Ubuntu Server con PostgreSQL frente a AWS.</li>
-        <li>Demostrar con cifras el ahorro a 3 años ($3,200 USD local vs más de $6,000 USD en AWS).</li>
-        <li>Conclusión clave: La latencia sub-milisegundo y la independencia de fallas de Internet hacen a la opción local la ganadora indiscutible.</li>
-      </ul>`,
-  12: `<strong>Diapositiva 12: Conclusiones y Próximos Pasos (Tiempo: 1 min)</strong>
-      <ul>
-        <li>Sintetizar el impacto: Sistema integral diseñado para transformar la rentabilidad y control de Moto Repuestos El Centenario.</li>
-        <li>Agradecer al jurado y abrir el espacio para preguntas y respuestas.</li>
+        <li>Sintetizar la entrega: 6 líneas base alineadas, probadas y documentadas.</li>
+        <li>Mencionar que en los <strong>Anexos (Tecla A)</strong> están disponibles los informes de Seguridad ISO 27001, SOLID/UX, Pruebas automatizadas (6/6 aprobadas) e Infraestructura Local vs Nube ($4,100 vs $7,060 USD a 3 años).</li>
+        <li>Agradecer y abrir espacio a preguntas.</li>
       </ul>`
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.slide');
-  const progressBar = document.getElementById('progressBarFill');
+  const progressBar = document.getElementById('bpProgressBarFill');
   const currentSlideSpan = document.getElementById('currentSlideNum');
   const totalSlidesSpan = document.getElementById('totalSlidesNum');
   const prevBtn = document.getElementById('prevSlideBtn');
   const nextBtn = document.getElementById('nextSlideBtn');
-  
+
   const notesDrawer = document.getElementById('speakerNotesDrawer');
   const notesContent = document.getElementById('notesContentBody');
   const toggleNotesBtn = document.getElementById('toggleNotesBtn');
@@ -97,33 +89,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const fullscreenBtn = document.getElementById('fullscreenBtn');
 
-  // Temporizador de defensa
-  const timerDisplay = document.getElementById('timerDisplay');
-  const toggleTimerBtn = document.getElementById('toggleTimerBtn');
-  const resetTimerBtn = document.getElementById('resetTimerBtn');
-
   let currentSlide = 1;
   const totalSlides = slides.length;
   totalSlidesSpan.textContent = String(totalSlides).padStart(2, '0');
 
-  // Inicializar índice
+  // Generar índice de slides
   slides.forEach((slide, idx) => {
     const slideNum = idx + 1;
-    const titleEl = slide.querySelector('.slide-title') || slide.querySelector('.cover-title');
-    const titleText = titleEl ? titleEl.textContent.trim().replace(/\s+/g, ' ') : `Diapositiva ${slideNum}`;
+    const titleEl = slide.querySelector('.slide-conclusion-title') || slide.querySelector('.cover-main-h1');
+    const titleText = titleEl ? titleEl.textContent.trim().replace(/\s+/g, ' ') : `Slide ${slideNum}`;
 
-    const item = document.createElement('div');
-    item.className = `index-item ${slideNum === 1 ? 'active' : ''}`;
-    item.innerHTML = `
-      <span class="index-item-number">${String(slideNum).padStart(2, '0')}</span>
-      <span class="index-item-title">${titleText}</span>
-      <span style="font-size:0.75rem; color:var(--text-muted);">↵</span>
+    const row = document.createElement('div');
+    row.className = `index-row-bp ${slideNum === 1 ? 'active' : ''}`;
+    row.innerHTML = `
+      <span style="font-family:var(--font-mono); color:var(--accent-signal);">${String(slideNum).padStart(2, '0')}</span>
+      <span style="flex:1; margin:0 8px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${titleText}</span>
+      <span style="font-size:0.7rem; color:var(--paper-dim);">↵</span>
     `;
-    item.addEventListener('click', () => {
+    row.addEventListener('click', () => {
       goToSlide(slideNum);
       indexDrawer.classList.remove('open');
     });
-    indexList.appendChild(item);
+    indexList.appendChild(row);
   });
 
   function updateSlideState() {
@@ -132,23 +119,19 @@ document.addEventListener('DOMContentLoaded', () => {
       slide.classList.toggle('active', slideNum === currentSlide);
     });
 
-    // Actualizar botones y contadores
     currentSlideSpan.textContent = String(currentSlide).padStart(2, '0');
     prevBtn.disabled = currentSlide === 1;
     nextBtn.disabled = currentSlide === totalSlides;
 
-    // Actualizar barra de progreso
-    const progressPercent = (currentSlide / totalSlides) * 100;
-    progressBar.style.width = `${progressPercent}%`;
+    const progress = (currentSlide / totalSlides) * 100;
+    progressBar.style.width = `${progress}%`;
 
-    // Actualizar índice activo
-    const indexItems = indexList.querySelectorAll('.index-item');
-    indexItems.forEach((item, idx) => {
-      item.classList.toggle('active', idx + 1 === currentSlide);
+    const rows = indexList.querySelectorAll('.index-row-bp');
+    rows.forEach((r, idx) => {
+      r.classList.toggle('active', idx + 1 === currentSlide);
     });
 
-    // Actualizar notas de orador
-    notesContent.innerHTML = SPEAKER_NOTES[currentSlide] || '<p>No hay notas adicionales para esta diapositiva.</p>';
+    notesContent.innerHTML = SPEAKER_NOTES_BP[currentSlide] || '<p>No hay notas para este slide.</p>';
   }
 
   function goToSlide(index) {
@@ -172,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Event Listeners de Botones
   prevBtn.addEventListener('click', prevSlide);
   nextBtn.addEventListener('click', nextSlide);
 
@@ -194,7 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
     indexDrawer.classList.remove('open');
   });
 
-  // Pantalla completa
   fullscreenBtn.addEventListener('click', toggleFullScreen);
 
   function toggleFullScreen() {
@@ -207,11 +188,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Navegación por teclado
+  // Teclado
   document.addEventListener('keydown', (e) => {
-    // Si un modal está abierto y se presiona ESC, cerrarlo
     if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
+      document.querySelectorAll('.bp-modal-overlay.open').forEach(m => m.classList.remove('open'));
       notesDrawer.classList.remove('open');
       indexDrawer.classList.remove('open');
       toggleNotesBtn.classList.remove('active');
@@ -237,109 +217,144 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleNotesBtn.classList.toggle('active', notesDrawer.classList.contains('open'));
     } else if (e.key.toLowerCase() === 'm') {
       indexDrawer.classList.toggle('open');
+    } else if (e.key.toLowerCase() === 'a') {
+      openModal('modalAnexos');
     }
   });
 
   // ==============================================================================
-  // TEMPORIZADOR DE EXPOSICIÓN (15:00 MINUTOS COUNTDOWN)
+  // SLIDE 4: INTERACTIVIDAD DE CUADRÍCULA RF
   // ==============================================================================
-  let timerSeconds = 15 * 60; // 15 minutos en segundos
-  let timerInterval = null;
-  let isTimerRunning = false;
+  const RF_DATA = {
+    'RF-01': 'Identidad, autenticación y permisos individuales por rol (Cajero, Bodeguero, Admin, Auditor).',
+    'RF-02': 'Catálogo de repuestos con matriz de compatibilidad multimarca de motocicletas y SKU.',
+    'RF-03': 'Gestión de compras a proveedores con validación de factura y recepción física en almacén.',
+    'RF-04': 'Kardex append-only: movimientos históricos inmutables con saldos en tiempo real.',
+    'RF-05': 'Emisión y control de cotizaciones con vigencia máxima de 7 días calendario.',
+    'RF-06': 'Facturación transaccional en mostrador en 4 terminales POS concurrentes con cálculo de IVA.',
+    'RF-07': 'Devoluciones y garantías con emisión de notas de crédito y peritaje de taller.',
+    'RF-08': 'Apertura de turno, control de cobros mixtos y arqueo de caja ciego al cierre.',
+    'RF-09': 'Auditoría transaccional con usuario, timestamp, IP y valores previo/posterior.',
+    'RF-10': 'Reportería comercial, financiera y de rotación de inventario sin bloquear la base de datos.',
+    'RF-11': 'Importación y exportación de listas de precios con adaptadores versionados.',
+    'RF-12': 'Tareas programadas de mantenimiento y respaldo diario cifrado AES-256.'
+  };
 
-  function renderTimer() {
-    const mins = Math.floor(timerSeconds / 60);
-    const secs = timerSeconds % 60;
-    timerDisplay.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-    if (timerSeconds <= 120 && timerSeconds > 0) {
-      timerDisplay.style.color = 'var(--accent-orange)';
-    } else if (timerSeconds === 0) {
-      timerDisplay.style.color = '#ef4444';
+  const rfButtons = document.querySelectorAll('.rf-item-btn');
+  const rfDetailBox = document.getElementById('rfDetailBox');
+
+  rfButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      rfButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const rfId = btn.getAttribute('data-rf');
+      if (rfDetailBox && RF_DATA[rfId]) {
+        rfDetailBox.innerHTML = `<strong>${rfId}:</strong> ${RF_DATA[rfId]}`;
+      }
+    });
+  });
+
+  // ==============================================================================
+  // SLIDE 6: INTERACTIVIDAD DEL FLUJO DE VENTA POS
+  // ==============================================================================
+  let currentStep = 1;
+  const maxSteps = 5;
+  const flowBoxes = document.querySelectorAll('.flow-step-box');
+  const flowStatusBanner = document.getElementById('flowStatusBanner');
+  const prevStepBtn = document.getElementById('flowPrevStepBtn');
+  const nextStepBtn = document.getElementById('flowNextStepBtn');
+  const rollbackBtn = document.getElementById('flowRollbackBtn');
+
+  const STEP_MESSAGES = {
+    1: '<strong>Paso 1: Validación de Cajero y Turno.</strong> Se confirma que el usuario tiene rol CAJERO y su turno de mostrador está ABIERTO.',
+    2: '<strong>Paso 2: Consulta y Reserva de Stock.</strong> Se valida que la cantidad solicitada existe físicamente en PostgreSQL (RN-08: sin sobregiro).',
+    3: '<strong>Paso 3: Recálculo Fiscal en Servidor.</strong> Se aplica IVA del 15% y descuento autorizado (hasta 5% ordinario o Admin).',
+    4: '<strong>Paso 4: Procesamiento de Cobro.</strong> Se procesa el medio de pago mediante patrón Strategy (Efectivo, Tarjeta, Transferencia).',
+    5: '<strong>Paso 5: Commit Atómico en Servidor.</strong> Se confirman simultáneamente: Factura + Kardex Append-Only + Caja + Log Auditoría. Transacción 100% exitosa.'
+  };
+
+  function updateFlowView(isRollback = false) {
+    flowBoxes.forEach((box, idx) => {
+      const stepNum = idx + 1;
+      box.classList.remove('rollback-active');
+      box.classList.toggle('active', stepNum <= currentStep);
+    });
+
+    if (isRollback) {
+      flowBoxes.forEach(b => b.classList.add('rollback-active'));
+      flowStatusBanner.classList.add('error');
+      flowStatusBanner.innerHTML = `
+        <div>
+          <span style="color:var(--alert-red); font-family:var(--font-mono); font-weight:bold;">[ROLLBACK AUTOMÁTICO ACTIVADO]</span><br>
+          <span style="font-size:0.85rem; color:var(--paper);">Se detectó stock insuficiente o error en el pago. La unidad transaccional revierte la inserción, restaura el inventario y genera un log de auditoría seguro sin efectos colaterales.</span>
+        </div>
+      `;
     } else {
-      timerDisplay.style.color = 'var(--accent-cyan-light)';
+      flowStatusBanner.classList.remove('error');
+      flowStatusBanner.innerHTML = `<div>${STEP_MESSAGES[currentStep]}</div>`;
     }
+
+    prevStepBtn.disabled = currentStep === 1;
+    nextStepBtn.disabled = currentStep === maxSteps;
   }
 
-  toggleTimerBtn.addEventListener('click', () => {
-    if (isTimerRunning) {
-      clearInterval(timerInterval);
-      isTimerRunning = false;
-      toggleTimerBtn.innerHTML = '<i class="ph ph-play"></i>';
-    } else {
-      isTimerRunning = true;
-      toggleTimerBtn.innerHTML = '<i class="ph ph-pause"></i>';
-      timerInterval = setInterval(() => {
-        if (timerSeconds > 0) {
-          timerSeconds--;
-          renderTimer();
-        } else {
-          clearInterval(timerInterval);
-          isTimerRunning = false;
-          toggleTimerBtn.innerHTML = '<i class="ph ph-play"></i>';
-        }
-      }, 1000);
-    }
-  });
-
-  resetTimerBtn.addEventListener('click', () => {
-    clearInterval(timerInterval);
-    isTimerRunning = false;
-    timerSeconds = 15 * 60;
-    renderTimer();
-    toggleTimerBtn.innerHTML = '<i class="ph ph-play"></i>';
-  });
-
-  // ==============================================================================
-  // CAPAS DEL DIAGRAMA INTERACTIVO (SLIDE 5)
-  // ==============================================================================
-  const diagramLayers = document.querySelectorAll('.diagram-layer');
-  const layerDetailBox = document.getElementById('diagramLayerDetailText');
-
-  const LAYER_DESCRIPTIONS = {
-    'presentacion': '<strong>Capa de Presentación Web (POS & Administración):</strong> Construida con HTML5 moderno, CSS responsivo y componentes accesibles WCAG AA. Gestiona la captura de transacciones en terminales táctiles de mostrador con atajos de teclado para agilizar la atención a menos de 45 segundos.',
-    'aplicacion': '<strong>Capa de Aplicación y Casos de Uso:</strong> Orquesta los flujos comerciales (VentaService, InventarioService, FacturacionService). Aplica el Principio de Responsabilidad Única (SRP) y no depende de implementaciones de infraestructura concretas (DIP).',
-    'dominio': '<strong>Capa de Dominio y Reglas de Negocio:</strong> Contiene las entidades puras (Producto, Factura, TurnoCaja) y valida las 15 Reglas de Negocio (RN-01 a RN-15). Aplica el patrón Strategy para medios de pago (OCP) y cálculo tributario de IVA (15%).',
-    'persistencia': '<strong>Capa de Infraestructura y Base de Datos (PostgreSQL 16):</strong> Persistencia relacional ACID. Disparadores append-only para auditoría e historial de Kardex inmutable. Consultas 100% parametrizadas para mitigar inyecciones SQL (ISO 27001 A.8.28).'
-  };
-
-  diagramLayers.forEach(layer => {
-    layer.addEventListener('click', () => {
-      diagramLayers.forEach(l => l.classList.remove('active'));
-      layer.classList.add('active');
-      const layerKey = layer.getAttribute('data-layer');
-      if (layerDetailBox && LAYER_DESCRIPTIONS[layerKey]) {
-        layerDetailBox.innerHTML = LAYER_DESCRIPTIONS[layerKey];
+  if (nextStepBtn && prevStepBtn && rollbackBtn) {
+    nextStepBtn.addEventListener('click', () => {
+      if (currentStep < maxSteps) {
+        currentStep++;
+        updateFlowView();
       }
+    });
+
+    prevStepBtn.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        updateFlowView();
+      }
+    });
+
+    rollbackBtn.addEventListener('click', () => {
+      updateFlowView(true);
+    });
+  }
+
+  // ==============================================================================
+  // SLIDE 8: PESTAÑAS DE DIAGRAMAS UML
+  // ==============================================================================
+  const umlTabs = document.querySelectorAll('.uml-tab-btn');
+  const umlCanvases = document.querySelectorAll('.uml-diagram-canvas');
+
+  umlTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      umlTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const targetId = tab.getAttribute('data-uml');
+      umlCanvases.forEach(canvas => {
+        canvas.classList.toggle('active', canvas.id === targetId);
+      });
     });
   });
 
   // ==============================================================================
-  // MODALES INTERACTIVOS (DEEP-DIVE MODALS)
+  // MODALES TÉCNICOS
   // ==============================================================================
-  window.openModal = function(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.classList.add('open');
-    }
+  window.openModal = function(id) {
+    const modal = document.getElementById(id);
+    if (modal) modal.classList.add('open');
   };
 
-  window.closeModal = function(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.classList.remove('open');
-    }
+  window.closeModal = function(id) {
+    const modal = document.getElementById(id);
+    if (modal) modal.classList.remove('open');
   };
 
-  // Cerrar haciendo clic en el backdrop
-  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  document.querySelectorAll('.bp-modal-overlay').forEach(overlay => {
     overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        overlay.classList.remove('open');
-      }
+      if (e.target === overlay) overlay.classList.remove('open');
     });
   });
 
-  // Iniciar estado inicial
+  // Inicializar
   updateSlideState();
-  renderTimer();
+  if (flowStatusBanner) updateFlowView();
 });
